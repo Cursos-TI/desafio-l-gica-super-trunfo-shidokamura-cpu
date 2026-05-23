@@ -1,13 +1,11 @@
 #include <stdio.h>
-
 // Desafio Super Trunfo - Países
 // Tema 2 - Comparação das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
 // Siga os comentários para implementar cada parte do desafio.
-
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+// Definição das variáveis para armazenar as propriedades das cidades
+// Você pode utilizar o código do primeiro desafio
     char estado1[2], estado2[2];
     char codigo_do_estado1[3], codigo_do_estado2[3];
     char nome_da_cidade1[20], nome_da_cidade2[20];
@@ -18,11 +16,11 @@ int main() {
     float densidade_populacional1, densidade_populacional2;
     long double pib_per_capita1, pib_per_capita2;
     long double super_trunfo1, super_trunfo2;  
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    int contador_de_vitorias1, contador_de_vitorias2;
+// Cadastro das Cartas:
+// Implemente a lógica para solicitar ao usuário que insira os dados das cidades
+// utilizando a função scanf para capturar as entradas.
+// utilize o código do primeiro desafio
     printf("Primeira Carta:\n");
     printf("Digite o nome do estado: \n");
     scanf("%s", estado1);
@@ -60,28 +58,65 @@ int main() {
     densidade_populacional2 = (float)populacao2 / area2;
     pib_per_capita2 = pib2 / area2;
     super_trunfo2 = (float)populacao2 + area2 + pib2 + (float)pontos_turisticos2 + 1/densidade_populacional2 + pib_per_capita2;  
-
-    // Área para exibição dos dados da cidade
-    printf("carta 1:\nEstado: %s\nCódigo do Estado: %s\nNome da Cidade: %s\nPopulação: %d\nArea: %fkm²\nPIB: %.2LfR$\nPontos Turisticos: %d\nDensidade populacional: %.3f\nPIB per capita: %.2LfR$\nSUPER TRUNFO: %.Lf\n", estado1, codigo_do_estado1, nome_da_cidade1, populacao1, area1, pib1, pontos_turisticos1, densidade_populacional1, pib_per_capita1, super_trunfo1);
-    printf("carta 2:\nEstado: %s\nCódigo do Estado: %s\nNome da Cidade: %s\nPopulação: %d\nArea: %fkm²\nPIB: %.2LfR$\nPontos Turisticos: %d\nDensidade populacional: %.3f\nPIB per capita: %.2LfR$\nSUPER TRUNFO: %.Lf\n", estado2, codigo_do_estado2, nome_da_cidade2, populacao2, area2, pib2, pontos_turisticos2, densidade_populacional2, pib_per_capita2, super_trunfo2);
-    
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
-
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
-
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
-
+// Comparação de Cartas:
+// Desenvolva a lógica de comparação entre duas cartas.
+// Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    printf("Qual carta vence, carta 1 ou carta 2? \n");
+    if (populacao1 > populacao2){
+        contador_de_vitorias1 += 1;
+        printf("Carta 1 Ganhou! População: %d\n",populacao1);
+    } else {
+        contador_de_vitorias2 += 1;
+        printf("Carta 2 Ganhou! População: %d\n",populacao2);
+    }
+    if (area1 > area2){
+        contador_de_vitorias1 += 1;
+        printf("Carta 1 Ganhou! Area: %fkm²\n",area1);
+    } else {
+        contador_de_vitorias2 += 1;
+        printf("Carta 2 Ganhou! Area: %fkm²\n",area2);
+    }
+    if (pib1 > pib2){
+        contador_de_vitorias1 += 1;
+        printf("Carta 1 Ganhou! Pib: %.2LfR$\n",pib1);
+    } else {
+        contador_de_vitorias2 += 1;
+        printf("Carta 2 Ganhou! Pib: %.2LfR$\n",pib2);
+    }
+    if (pontos_turisticos1 > pontos_turisticos2){
+        contador_de_vitorias1 += 1;
+        printf("Carta 1 Ganhou! Pontos Turisticos: %d\n",pontos_turisticos1);
+    } else {
+        contador_de_vitorias2 += 1;
+        printf("Carta 2 Ganhou! Pontos Turisticos: %d\n",pontos_turisticos2);
+    }
+    if (densidade_populacional1 < densidade_populacional2){
+        contador_de_vitorias1 += 1;
+        printf("Carta 1 Ganhou! Densidade Populacional: %.3f\n",densidade_populacional1);
+    } else {
+        contador_de_vitorias2 += 1;
+        printf("Carta 2 Ganhou! Densidade Populacional: %.3f\n",densidade_populacional2);
+    }
+    if (pib_per_capita1 > pib_per_capita2) {
+        contador_de_vitorias1 += 1;
+        printf("Carta 1 Ganhou! PIB per Capta: %.2LfR$\n",pib_per_capita1);
+    } else {
+        contador_de_vitorias2 += 1;
+        printf("Carta 2 Ganhou! PIB per Capta: %.2LfR$\n",pib_per_capita2);
+    }
+    if (super_trunfo1 > super_trunfo2){
+        contador_de_vitorias1 += 5;
+        printf("Carta 1 Ganhou! SUPER TRUNFO: %.Lf\n",super_trunfo1);
+    } else {
+        contador_de_vitorias2 += 5;
+        printf("Carta 2 Ganhou! SUPER TRUNFO: %.Lf\n",super_trunfo2);
+    }
+    if (contador_de_vitorias1 > contador_de_vitorias2){
+        printf("A Carta 1 é o SUPER TRUNFO!!!\n");
+        printf("Carta 1:\nEstado: %s\nCódigo do Estado: %s\nNome da Cidade: %s\nPopulação: %d\nArea: %fkm²\nPIB: %.2LfR$\nPontos Turisticos: %d\nDensidade populacional: %.3f\nPIB per capita: %.2LfR$\nSUPER TRUNFO: %.Lf\n", estado1, codigo_do_estado1, nome_da_cidade1, populacao1, area1, pib1, pontos_turisticos1, densidade_populacional1, pib_per_capita1, super_trunfo1);
+    } else {
+        printf("A Carta 2 é o SUPER TRUNFO!!!\n");
+        printf("Carta 2:\nEstado: %s\nCódigo do Estado: %s\nNome da Cidade: %s\nPopulação: %d\nArea: %fkm²\nPIB: %.2LfR$\nPontos Turisticos: %d\nDensidade populacional: %.3f\nPIB per capita: %.2LfR$\nSUPER TRUNFO: %.Lf\n", estado2, codigo_do_estado2, nome_da_cidade2, populacao2, area2, pib2, pontos_turisticos2, densidade_populacional2, pib_per_capita2, super_trunfo2);
+    }
     return 0;
 }
